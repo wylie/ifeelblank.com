@@ -1,13 +1,13 @@
 $(function() {
 	
 	// display saved feelings
-	$.get('feelings.html', function(data) {
+	$.get('../templates/feelings.html', function(data) {
 		$('.second').html(data).fadeIn('fast');
 	});		
 
 	// save the feelings
 	function sendFeeling(feeling, feeling, data) {
-		$.post('feelings.php', function(feeling, feeling, data) {
+		$.post('../actions/feelings.php', function(feeling, feeling, data) {
 			//console.log(data);
 		});	
 	}

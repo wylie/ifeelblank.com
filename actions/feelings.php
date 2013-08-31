@@ -2,7 +2,7 @@
 
 	function writeFeelings($f, $f, $d) {
 	
-		$filename = 'feelings.html';
+		$filename = '../templates/feelings.html';
 		$feeling = "<div class='feeling " . $f . "' data-feeling='" . $f . "' data-date='" . $d . "'></div>\n";
 		
 		$file = file_get_contents($filename);
