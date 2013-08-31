@@ -1,0 +1,263 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: '';content: none; }
+table { border-collapse: collapse;border-spacing: 0;}
+/* END RESET */
+
+
+html, body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Grand Hotel', cursive;
+	font-size: 1em;
+	color: #FFF;
+	width: 100%;
+	height: 100%;
+	background: #64abba; /* Old browsers */
+}
+
+.wrap {
+	width: 50%;
+	margin: auto;
+}
+.first {
+	text-align: center;
+	padding-top: 20px;
+}
+.heading {
+	width: 100%;
+	clear: both;
+	font-size: 5rem;
+	text-shadow: 1px 1px 1px #076f85;
+	margin-bottom: 10px;
+}
+.subheading {
+	width: 100%;
+	clear: both;
+	font-size: 4.25rem;
+	line-height: 4.25rem;
+	text-shadow: 1px 1px 1px #076f85;
+	margin: .5em 0;
+}
+.subheading span {
+	display: inline-block;
+	border-bottom: 5px solid #FFF;
+	min-width: 75px;
+	line-height: 3rem;
+}
+.submit {
+	width: 100%;
+}
+
+.feelings {
+	width: 100%;
+	
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+	-o-user-select: none;
+}
+.feeling {
+	border: 5px solid #CCC;
+	background-color: #EEE;
+	cursor: pointer;
+	display: inline-block;
+	box-sizing: border-box;
+	font-size: 3rem;
+	line-height: 4rem;
+	color: #AAA;
+	font-weight: bold;
+	text-decoration: none;
+	vertical-align: top;
+}
+.feelings .feeling {
+	padding: 10px;
+	width: 100px;
+	height: 100px;
+	margin: 20px 5px 0 0;
+	box-shadow: -1px 1px 1px #076f85;
+}
+.feelings .feeling:first-child {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.feelings .feeling:last-child {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.first .result {
+	clear: both;
+	text-shadow: 1px 1px 1px #076f85;
+	font-size: 4rem;
+}
+.first .tomorrow {
+	font-size: 3rem;
+	text-shadow: 1px 1px 1px #076f85;
+	margin-bottom: 20px;
+}
+
+
+
+/* FEELINGS PAGE */
+.second {
+	text-align: center;
+	padding: 0 15px 20px;
+}
+.second .feeling {
+	width: 50px;
+	height: 50px;
+	margin: 0 3px 3px 0;
+	position: relative;
+	float: right;
+}
+
+
+/* COLORS */
+.excited:hover,
+.second .excited {
+	background-color: #ec7b28;
+	border: 5px solid #b86120;
+}
+.tender:hover,
+.second .tender {
+	background-color: #f014e8;
+	border: 5px solid #af1eaa;
+}
+.scared:hover,
+.second .scared {
+	background-color: #e5df43;
+	border: 5px solid #beb93c;
+}
+.angry:hover,
+.second .angry {
+	background-color: #e80d0d;
+	border: 5px solid #b60b0b;
+}
+.sad:hover,
+.second .sad {
+	background-color: #5185cc;
+	border: 5px solid #3f679e;
+}
+.happy:hover,
+.second .happy {
+	background-color: #3ea34a;
+	border: 5px solid #2a6d32;
+}
+
+
+/* HELP */
+.info {
+    position: absolute;
+    bottom:  10px;
+    left:  10px;
+    background: #777;
+    color:  #CCC;
+    width:  20px;
+    height:  20px;
+    text-align: center;
+    font-family:  helvettica, arial, sans-serif;
+    line-height:  1.4em;
+    border-radius:  10px;
+    opacity:  0.5;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+.info:hover {
+    opacity:  1;
+}
+.info:active {
+    background-color: #555;
+}
+
+/* INFOBOX */
+.infobox {
+	background-color: rgba(0, 0, 0, 0.65);
+	padding: 1em;
+	font-size: 1.25em;
+	font-family: helvetica, arial, sans-serif;
+	color: #FFF;
+	width: 40%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 205px;
+	z-index: 10;
+	border-radius: 10px;
+	box-shadow: 0 0 2px #000;
+}
+.infobox .close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	font-size: 1em;
+	font-weight: 100;
+	color: #CCC;
+	cursor: pointer;
+}
+.infobox .close:hover {
+	color: #aaa;
+}
+.infobox h1 {
+    font-size:  1.75em;
+    padding-bottom:  .25em;
+}
+.infobox p {
+    padding-bottom:  1em;
+}
+.shade {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 5;
+}
+
+
+/* HOVER */
+
+.lilwrap {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	float: right;
+	padding: 10px 25px 90px 25px;
+	margin: -10px -22px -90px -25px;
+}
+.hover {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	border-radius: 5px;
+}
