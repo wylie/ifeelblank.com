@@ -37,14 +37,14 @@ $(function() {
 			data = {'feeling': feeling};
 		$('.second').prepend('<div class="feeling ' + feeling + '"></div>');
 		// send feeling to feelings page
-		$.post('feelings.php', data, function(returnData){
+		$.post('../actions/feelings.php', data, function(returnData){
 			sendFeeling();
 		});
 	});
 	
 	// show the info
 	$('.info').on('click', function() {
-		$.get('info.html', function(data) {
+		$.get('../templates/info.html', function(data) {
 			$('body').append(data);
 		});
 	});
