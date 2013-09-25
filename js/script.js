@@ -30,16 +30,23 @@ $(function() {
 	// set the new dimensions
 	$('.feeling').css({'width': newDim, 'height': newDim});
 	
-	
+	// add your feeling
 	$('.feeling').on('click', function() {
 		// set up the variables
 		var feeling = $(this).data('feeling');
 			data = {'feeling': feeling};
-		$('.second').prepend('<div class="feeling ' + feeling + '"></div>');
-		// send feeling to feelings page
-		$.post('../actions/feelings.php', data, function(returnData){
-			sendFeeling();
-		});
+		// bake a cookie
+		$.cookie('feeling', feeling, { expires: 1, path: '/' });
+		// count clicks
+		//for(n = 1; n <= 3; n++) {
+			//if(n<3) {
+				$('.second').prepend('<div class="feeling ' + feeling + '"></div>');
+				// send feeling to feelings page
+				$.post('../actions/feelings.php', data, function(returnData){
+					sendFeeling();
+				});
+			//}			
+		//}
 	});
 	
 	// show the info
@@ -66,6 +73,12 @@ $(function() {
 		$('.hover').remove('.hover');
 		$(this).unwrap('<div class="lilwrap">').css('z-index', 0);
 	});
-	*/	
+	*/
+
+	// cookie business
+	var chip = $.cookie('feeling');
+	if(chip) {
+		console.log(chip);
+	}
 
 });
