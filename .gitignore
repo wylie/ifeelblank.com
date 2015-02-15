@@ -1,3 +1,5 @@
 # FILES
 templates/feelings.html
 .DS_Store
+node_modules/
+dist/
