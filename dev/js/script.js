@@ -1,84 +1,50 @@
-$(function() {
-	
-	// display saved feelings
-	$.get('../templates/feelings.html', function(data) {
-		$('.second').html(data).fadeIn('fast');
-	});		
+window.onload = init;
 
-	// save the feelings
-	function sendFeeling(feeling, feeling, data) {
-		$.post('../actions/feelings.php', function(feeling, feeling, data) {
-			//console.log(data);
-		});	
+function init() {
+	getData();
+	// console.log( 'init' );
+}
+
+function hovers() {
+
+}
+
+function getData() {
+	// console.log( 'getData' );
+	var request = new XMLHttpRequest();
+	request.open('GET', 'data/feelings.json');
+
+	request.onreadystatechange = function() {
+		if(this.readyState == this.DONE && this.status == 200) {
+			var type = request.getResponseHeader('Content-Type');
+			if(this.responseText != null) {
+				// console.log( this.responseText );
+				var json = JSON.parse(this.responseText);
+				var data = json.feelings;
+				displayData(data);
+			}
+		}
 	}
-	
-	// rollover feelings
-	$('.feeling').on('mouseover', function() {
-		var feeling = $(this).data('feeling');
-		$('.subheading').fadeIn(1000).children('span').text(feeling);
-	});
-	// set the feeling to blank in the subheading
-	$('.first').on('mouseleave', function() {
-		$('.subheading span').text('      ');
-	});
+	request.send();
+}
 
-	// get feeling box width
-	var boxW = $('.feelings').width();
-		numFeelings = $('.feeling').length;
-		newBoxW = boxW - (numFeelings * 12); // new width minus margins
-		newDim = newBoxW / numFeelings  + 'px';
-	// set the new dimensions
-	$('.feeling').css({'width': newDim, 'height': newDim});
-	
-	// add your feeling
-	$('.feeling').on('click', function() {
-		// set up the variables
-		var feeling = $(this).data('feeling');
-			data = {'feeling': feeling};
-		// bake a cookie
-		$.cookie('feeling', feeling, { expires: 1, path: '/' });
-		// count clicks
-		//for(n = 1; n <= 3; n++) {
-			//if(n<3) {
-				$('.second').prepend('<div class="feeling ' + feeling + '"></div>');
-				// send feeling to feelings page
-				$.post('../actions/feelings.php', data, function(returnData){
-					sendFeeling();
-				});
-			//}			
-		//}
-	});
-	
-	// show the info
-	$('.info').on('click', function() {
-		$.get('../templates/info.html', function(data) {
-			$('body').append(data);
-		});
-	});
+function displayData(data) {
+	var list = document.getElementById('list');
+	for(var i = 0; i < data.length; i++ ) {
+		var li = document.createElement('li');
+		var resultFrag = document.createDocumentFragment();
 
-	// hide the info
-	$(document).on('click', '.infobox .close', function() {
-		$('.infobox').remove();
-		$('.shade').remove();
-	});
-	
-	/*
-	// show hover 
-	$(document).on('mouseover', '.second .feeling', function() {
-		var date = $(this).data('date');
-		$(this).wrap('<div class="lilwrap">').after('<div class="hover"><span>Felt on <em>' + date + '</em></span></div>').css('z-index', 2);
-	});
+		li.setAttribute('id', data[i].id);
+		li.setAttribute('class', 'feeling');
+		li.classList.add(data[i].name);
+		li.setAttribute('data-feeling', data[i].name);
+		li.setAttribute('data-date', data[i].date);
 
-	$(document).on('mouseout', '.second .feeling', function() {
-		$('.hover').remove('.hover');
-		$(this).unwrap('<div class="lilwrap">').css('z-index', 0);
-	});
-	*/
-
-	// cookie business
-	var chip = $.cookie('feeling');
-	if(chip) {
-		console.log(chip);
+		resultFrag.appendChild(li);
+		list.appendChild(resultFrag);
 	}
+}
 
-});
+function saveData() {
+	
+}

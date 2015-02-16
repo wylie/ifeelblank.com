@@ -5,10 +5,8 @@
 	<title>I Feel _____</title>
 	
 	<link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/style.css" />	
+	<link rel="stylesheet" href="css/styles.css" />	
 	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="js/cookie.js"></script>
 	<script src="js/script.js"></script>
 	
 </head>
@@ -16,20 +14,18 @@
 
 <div class="wrap">
 	
-	<div class="first">
-		<h1 class="heading">How Are You Feeling?</h1>
-		<div class="feelings">
-			<div class="feeling excited" data-feeling="excited"></div>
-			<div class="feeling tender" data-feeling="tender"></div>
-			<div class="feeling scared" data-feeling="scared"></div>
-			<div class="feeling angry" data-feeling="angry"></div>
-			<div class="feeling sad" data-feeling="sad"></div>
-			<div class="feeling happy" data-feeling="happy"></div>
-		</div>
-		<h2 class="subheading">I Feel <span>      </span>.</h2>
-	</div>
+	<h1 class="heading">How Are You Feeling?</h1>
+	<ul class="feeling-list">
+		<li class="excited">excited</li>
+		<li class="tender">tender</li>
+		<li class="scared">scared</li>
+		<li class="angry">angry</li>
+		<li class="sad">sad</li>
+		<li class="happy">happy</li>
+	</ul>
+	<h2 class="subheading">I Feel <span>      </span>.</h2>
 	
-	<div class="second"></div>
+	<ul class="second" id="list"></ul>
 
 	<div class="info">?</div>
 
